@@ -1,26 +1,29 @@
-package com.konstde00.lab_1.ui.components
+package com.konstde00.milkmobileapp.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.konstde00.lab_1.R
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
-fun AuthorPage(onBack: () -> Unit) {
+fun AuthorPage(navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text("About the Author") },
                 navigationIcon = {
-                    IconButton(onClick = onBack) {
+                    IconButton(onClick = { navController.popBackStack() }) {
                         Icon(
-                            painter = painterResource(id = R.drawable.ic_back),
+                            imageVector = Icons.Default.ArrowBack,
                             contentDescription = "Back"
                         )
                     }
